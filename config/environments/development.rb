@@ -1,5 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  ENV['PUBNUB_PUBLISH_KEY'] = "pub-c-e411ac17-2dbf-420c-9043-8dd931de8972"
+  ENV['PUBNUB_SUBSCRIBE_KEY'] = "sub-c-fd509126-8c77-11e5-83e3-02ee2ddab7fe"
+  ENV['PUBNUB_SECRET_KEY'] = "sec-c-YWEwMmQ4YzEtYzU5Mi00NTQ5LWFiODEtM2Q5OGE3ZTVmMDg0"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
