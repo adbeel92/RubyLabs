@@ -32,6 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Real time application
 gem "pubnub", "~> 3.7.9"
 
+# A modern web server and application server for Ruby, Python and Node.js, optimized for performance, low memory usage and ease of use.
+gem 'passenger', '~> 5.0', '>= 5.0.28'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
