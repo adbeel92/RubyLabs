@@ -34,7 +34,7 @@ set :use_sudo, true
 
 set :rvm_ruby_version, '2.1.1'
 
-set :passenger_restart_options, -> { "/var/www/backends/tulbox_testing --ignore-app-not-running" }
+set :passenger_restart_with_touch, true
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
