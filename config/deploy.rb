@@ -8,13 +8,15 @@ set :repo_url, 'git@github.com:eduardoarenastk/RubyLabs.git'
 set :branch, "development"
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/var/www/backends/tulbox_testing'
+set :deploy_to, '/home/backends/tulbox'
 
 # Default value for :scm is :git
 set :scm, :git
 
+set :stage, :production
+
 # Set the user you want to use for your server's deploys
-set :user, "ruby3k"
+#set :user, "root"
 
 # Set your Rails environment
 set :rails_env, "production"
@@ -25,16 +27,22 @@ set :deploy_via, :copy
 # Tell Capistrano your special SSH options
 set :ssh_options, { :forward_agent => true }
 
-role :web, "development.tektonlabs.com"
-role :app, "development.tektonlabs.com"
-role :db, "development.tektonlabs.com", :primary => true
+# role :web, "development.tektonlabs.com"
+# role :app, "development.tektonlabs.com"
+# role :db, "development.tektonlabs.com", :primary => true
 
-set :pty, true
-set :use_sudo, true
+# set :pty, true
+# set :use_sudo, true
+
+set :default_env, {
+  'SECRET_KEY_BASE' => "dxwid9je02nd02uf9gunub9urnuf24fDdHG2GDG32DIEY2igDFBUbeIHefEHJFjBCsd20i20u3"
+}
 
 set :rvm_ruby_version, '2.1.1'
 
 set :passenger_restart_with_touch, true
+
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
 
