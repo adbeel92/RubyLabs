@@ -1,4 +1,4 @@
-module PubnubManager
+module PubnubService
 
   def self.publish channel, object
     PUBNUB_CLIENT.publish(

@@ -7,7 +7,19 @@ class Api::V1::MessagesController < Api::ApiV1Controller
 
   def create
     @message = Message.create(message_params)
-    PubnubManager.publish("MyFirstChannel", @message)
+    interactor = PubnubInteractor.call("MyFirstChannel", @message)
+    if interactor.success?
+      render json: {
+        success: true
+      }
+    else
+      render json: {
+        success: false,
+        error: {
+          message: interactor.error
+        }
+      }
+    end
   end
 
   private

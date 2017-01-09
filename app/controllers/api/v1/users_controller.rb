@@ -7,7 +7,19 @@ class Api::V1::UsersController < Api::ApiV1Controller
 
   def create
     @user = User.create(user_params)
-    PubnubManager.publish("MyFirstChannel", @user)
+    interactor = PubnubInteractor.call("MyFirstChannel", @user)
+    if interactor.success?
+      render json: {
+        success: true
+      }
+    else
+      render json: {
+        success: false,
+        error: {
+          message: interactor.error
+        }
+      }
+    end
   end
 
   def show
